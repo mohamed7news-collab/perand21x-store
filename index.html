@@ -6,35 +6,25 @@
     <title>Perand21x - متجر ملابس الشباب</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* جميع أنماط CSS تبقى كما هي */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #ffa62b;
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --text-light: #f0f6fc;
+            --border-color: #30363d;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
-        
-        :root {
-            --primary-color: #ff6b35;
-            --secondary-color: #ffa62b;
-            --accent-color: #00a8cc;
-            --dark-bg: #0d1117;
-            --card-bg: #161b22;
-            --text-light: #f0f6fc;
-            --text-gray: #8b949e;
-            --border-color: #30363d;
-            --success-color: #238636;
-            --warning-color: #daaa3b;
-            --danger-color: #f85149;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --border-radius: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
             background-color: var(--dark-bg);
             color: var(--text-light);
-            line-height: 1.6;
-            min-height: 100vh;
         }
         
         .container {
@@ -44,16 +34,12 @@
             padding: 0 15px;
         }
         
-        /* رأس الصفحة */
         header {
-            background-color: rgba(13, 17, 23, 0.95);
-            backdrop-filter: blur(10px);
-            color: white;
+            background-color: var(--dark-bg);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow);
             border-bottom: 1px solid var(--border-color);
         }
         
@@ -64,98 +50,58 @@
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-light);
-        }
-        
-        .logo i {
+            font-weight: bold;
             color: var(--primary-color);
-        }
-        
-        .logo span {
-            color: #ffffff;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
         
         nav a {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
             padding: 8px 15px;
-            border-radius: var(--border-radius);
+            border-radius: 5px;
+            transition: all 0.3s;
         }
         
         nav a:hover {
-            color: var(--primary-color);
-            background-color: rgba(255, 107, 53, 0.1);
-        }
-        
-        .cart-icon {
-            position: relative;
+            background-color: var(--primary-color);
         }
         
         .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--danger-color);
+            background-color: red;
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            padding: 2px 6px;
             font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-right: 5px;
         }
         
-        /* قسم الهيرو */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1558769132-cb1a40ed0ada?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
             text-align: center;
             padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1558769132-cb1a40ed0ada?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
             margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
         }
         
         .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 25px;
-            color: var(--text-gray);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
         
         .btn {
             display: inline-block;
             background-color: var(--primary-color);
             color: white;
-            padding: 12px 28px;
-            border-radius: var(--border-radius);
+            padding: 12px 30px;
+            border-radius: 5px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-size: 1rem;
@@ -163,380 +109,110 @@
         
         .btn:hover {
             background-color: #ff5722;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 107, 53, 0.3);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 0.9rem;
-        }
-        
-        .btn-danger {
-            background-color: var(--danger-color);
-        }
-        
-        .btn-danger:hover {
-            background-color: #e53935;
-        }
-        
-        .btn-success {
-            background-color: var(--success-color);
-        }
-        
-        .btn-success:hover {
-            background-color: #1e7e34;
-        }
-        
-        /* قسم الفئات */
-        .categories {
-            margin-bottom: 40px;
-        }
-        
-        .categories-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--text-light);
-            font-size: 1.8rem;
-        }
-        
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .category-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            padding: 20px;
-            cursor: pointer;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-        
-        .category-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .category-card.active {
-            border-color: var(--primary-color);
-            background-color: rgba(255, 107, 53, 0.1);
-        }
-        
-        /* قسم المنتجات */
-        .section-title {
-            text-align: center;
-            margin: 40px 0 30px;
-            color: var(--text-light);
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
         
         .product-card {
             background-color: var(--card-bg);
-            border-radius: var(--border-radius);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
             border: 1px solid var(--border-color);
         }
         
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
-        
         .product-image {
-            height: 220px;
+            height: 200px;
             overflow: hidden;
-            position: relative;
         }
         
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-code {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
         }
         
         .product-info {
-            padding: 20px;
+            padding: 15px;
         }
         
         .product-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
-            color: var(--text-light);
         }
         
-        .product-description {
-            color: var(--text-gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            height: 60px;
-            overflow: hidden;
-        }
-        
-        .size-selection {
-            margin-bottom: 15px;
-        }
-        
-        .size-title {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            margin-bottom: 8px;
-        }
-        
-        .size-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .size-option {
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid var(--border-color);
-            background-color: var(--dark-bg);
-            color: var(--text-gray);
-        }
-        
-        .size-option.available {
-            background-color: rgba(255, 107, 53, 0.2);
+        .product-price {
             color: var(--primary-color);
-            border-color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: bold;
         }
         
-        .size-option.selected {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
-        .size-option.unavailable {
-            background-color: rgba(248, 81, 73, 0.1);
-            color: var(--danger-color);
-            border-color: var(--danger-color);
-            cursor: not-allowed;
-        }
-        
-        .price-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .current-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .old-price {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            text-decoration: line-through;
-        }
-        
-        .discount-badge {
-            background-color: var(--danger-color);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .product-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .btn-add-to-cart {
-            flex-grow: 1;
-            background-color: var(--secondary-color);
-            padding: 10px;
-        }
-        
-        .btn-view-details {
-            background-color: transparent;
-            border: 2px solid var(--secondary-color);
-            color: var(--secondary-color);
-            padding: 10px 15px;
-        }
-        
-        .btn-view-details:hover {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        
-        /* نافذة التحميل */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(13, 17, 23, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            color: var(--text-light);
-        }
-        
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--border-color);
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* تنسيقات أخرى تبقى كما هي */
-        .shipping-options {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin: 20px 0;
-            border: 1px solid var(--border-color);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* ... باقي الـ CSS كما هو تماماً ... */
-        
-        .copyright {
+        .loading {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-gray);
-            font-size: 0.9rem;
+            padding: 40px;
+            color: var(--text-light);
         }
         
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            nav ul {
-                gap: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .categories-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
+        .error-message {
+            background-color: #ff4444;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .success-message {
+            background-color: #00C851;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .admin-panel {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .admin-form input, .admin-form textarea, .admin-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: var(--dark-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
 <body>
-    <!-- نافذة التحميل -->
-    <div id="loading-overlay" class="loading-overlay">
-        <div class="loading-spinner"></div>
-        <p>جاري تحميل المنتجات...</p>
-        <p id="loading-status" style="color: var(--text-gray); margin-top: 10px; font-size: 0.9rem;"></p>
-    </div>
-
     <!-- الرأس -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-crown"></i>
-                <span>Perand21x</span>
-            </div>
+            <div class="logo">Perand21x</div>
             <nav>
                 <ul>
-                    <li><a href="#" id="home-link"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#" id="products-link"><i class="fas fa-tshirt"></i> المنتجات</a></li>
-                    <li><a href="#" id="cart-link" class="cart-icon">
-                        <i class="fas fa-shopping-cart"></i> السلة
-                        <span id="cart-count" class="cart-count">0</span>
+                    <li><a href="#" id="home-link">الرئيسية</a></li>
+                    <li><a href="#" id="products-link">المنتجات</a></li>
+                    <li><a href="#" id="cart-link">
+                        <span class="cart-count" id="cart-count">0</span> السلة
                     </a></li>
+                    <li><a href="#" id="admin-link">الإدارة</a></li>
                 </ul>
             </nav>
         </div>
@@ -545,587 +221,170 @@
     <!-- قسم الهيرو -->
     <section class="hero">
         <div class="container">
-            <h1>Perand21x - أسلوب الشباب المميز</h1>
-            <p>متخصصون في ملابس الشباب والصبيان بأحدث صيحات الموضة والأسعار التنافسية</p>
-            <a href="#" id="shop-now" class="btn btn-primary">استعرض المنتجات</a>
-        </div>
-    </section>
-
-    <!-- قسم الفئات -->
-    <section class="container categories" id="categories-section">
-        <h2 class="categories-title">فئات المنتجات</h2>
-        <div class="categories-grid" id="categories-container">
-            <!-- سيتم إضافة الفئات هنا جافاسكريبت -->
+            <h1>متجر Perand21x للملابس الشبابية</h1>
+            <p style="margin-bottom: 30px;">أحدث صيحات الموضة للشباب</p>
+            <a href="#" class="btn" id="view-products">عرض المنتجات</a>
         </div>
     </section>
 
     <!-- قسم المنتجات -->
     <main class="container">
-        <h2 class="section-title" id="products-section-title">تشكيلة ملابس الشباب</h2>
-        <div id="products-container" class="products-grid">
-            <!-- سيتم إضافة المنتجات هنا جافاسكريبت -->
+        <div id="loading" class="loading" style="display: none;">
+            <p>جاري تحميل المنتجات...</p>
         </div>
         
-        <!-- زر إعادة تحميل المنتجات -->
-        <div style="text-align: center; margin: 40px 0;">
-            <button id="refresh-products" class="btn btn-secondary" style="display: none;">
-                <i class="fas fa-sync-alt"></i> إعادة تحميل المنتجات
-            </button>
+        <div id="error-message" class="error-message" style="display: none;"></div>
+        <div id="success-message" class="success-message" style="display: none;"></div>
+        
+        <h2 style="margin: 30px 0;">منتجاتنا</h2>
+        <div id="products-container" class="products-grid">
+            <!-- المنتجات تُعرض هنا -->
         </div>
-    </main>
-
-    <!-- باقي الـ HTML يبقى كما هو تماماً (نفس الكود السابق) -->
-    <!-- قسم نظام الشحن -->
-    <section class="container" id="shipping-section" style="display: none;">
-        <div class="shipping-options">
-            <h2 class="shipping-title">اختر نوع الشحن</h2>
-            <div class="shipping-type-options">
-                <div class="shipping-type" id="shipping-egypt">
-                    <div class="shipping-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>الشحن داخل مصر</h3>
-                    <p>سعر الشحن: 100 جنيه</p>
-                </div>
-                <div class="shipping-type" id="shipping-international">
-                    <div class="shipping-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>الشحن خارج مصر</h3>
-                    <p>سعر الشحن: 1800 جنيه</p>
-                </div>
-            </div>
+        
+        <!-- لوحة الإدارة -->
+        <div id="admin-panel" class="admin-panel" style="display: none;">
+            <h2>لوحة إدارة المنتجات</h2>
+            <button id="load-from-github" class="btn">تحميل من GitHub</button>
+            <button id="save-to-github" class="btn" style="background-color: #00C851; margin-right: 10px;">حفظ إلى GitHub</button>
+            <button id="clear-all" class="btn" style="background-color: #ff4444; margin-right: 10px;">حذف الكل</button>
             
-            <!-- طرق الدفع -->
-            <div class="payment-options" id="payment-options">
-                <h3 style="color: var(--text-light); margin-bottom: 20px;">اختر طريقة الدفع</h3>
-                <div class="payment-methods" id="payment-methods-container">
-                    <!-- سيتم تعبئة طرق الدفع حسب نوع الشحن -->
-                </div>
-                
-                <!-- تفاصيل الدفع حسب الطريقة -->
-                <div id="payment-details-wallet" class="payment-details" style="display: none;">
-                    <h4 style="color: var(--text-light); margin-bottom: 15px;">دفع عن طريق فودافون كاش</h4>
-                    <p style="margin-bottom: 15px; color: var(--text-gray);">يرجى التحويل إلى الرقم التالي:</p>
-                    <div class="payment-number">01044051546</div>
-                    <div class="payment-qr">
-                        <p style="margin-bottom: 10px; color: var(--text-gray);">مسح كود الدفع:</p>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=01044051546" alt="QR Code">
-                    </div>
-                </div>
-                
-                <div id="payment-details-bank" class="payment-details" style="display: none;">
-                    <h4 style="color: var(--text-light); margin-bottom: 15px;">دفع عن طريق التحويل البنكي</h4>
-                    <p style="margin-bottom: 15px; color: var(--text-gray);">يرجى التحويل إلى الحساب التالي:</p>
-                    <div class="payment-iban" id="iban-number"></div>
-                    <p style="margin-bottom: 15px; color: var(--text-gray);">سيظهر الـ IBAN المناسب حسب نوع الشحن</p>
-                </div>
-                
-                <div style="text-align: center; margin-top: 25px;">
-                    <button id="proceed-to-order" class="btn btn-primary">متابعة إلى نموذج الطلب</button>
-                    <button id="back-to-cart-from-shipping" class="btn btn-secondary" style="margin-right: 15px;">العودة للسلة</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- نموذج الطلب -->
-    <section class="container">
-        <div id="order-form-container" class="order-form-container">
-            <h2 class="form-title">اكمل بيانات الطلب</h2>
-            
-            <div id="order-success" class="success-message" style="display: none;">
-                <i class="fas fa-check-circle"></i>
-                <h3 style="color: var(--success-color); margin-bottom: 15px;">تم تقديم طلبك بنجاح!</h3>
-                <p style="color: var(--text-light); margin-bottom: 10px;">سيتم التواصل معك خلال 24 ساعة لتأكيد موعد التسليم</p>
-                <p style="color: var(--text-gray); font-size: 0.9rem;">تم إرسال تفاصيل الطلب إلى فريق المبيعات</p>
-                <button id="back-to-home" class="btn btn-primary" style="margin-top: 20px;">العودة للرئيسية</button>
-            </div>
-            
-            <div id="order-form-content">
-                <div class="order-container">
-                    <!-- ملخص الطلب -->
-                    <div class="order-summary">
-                        <h3 class="order-summary-title">ملخص طلبك</h3>
-                        <div id="order-summary-items">
-                            <!-- سيتم ملء العناصر هنا -->
-                        </div>
-                        <div class="order-item">
-                            <span>سعر المنتجات:</span>
-                            <span id="order-products-total">0 جنيه</span>
-                        </div>
-                        <div class="order-item">
-                            <span>سعر الشحن:</span>
-                            <span id="order-shipping-price">0 جنيه</span>
-                        </div>
-                        <div class="order-item order-total">
-                            <span>الإجمالي:</span>
-                            <span id="order-total-price">0 جنيه</span>
-                        </div>
-                        <div class="order-item">
-                            <span>طريقة الدفع:</span>
-                            <span id="order-payment-method">غير محدد</span>
-                        </div>
-                        <div class="order-item">
-                            <span>نوع الشحن:</span>
-                            <span id="order-shipping-type">غير محدد</span>
-                        </div>
-                    </div>
-                    
-                    <!-- نموذج البيانات -->
-                    <div class="order-form">
-                        <form id="final-order-form">
-                            <div class="form-group">
-                                <label for="full-name" class="required">الاسم بالكامل:</label>
-                                <input type="text" id="full-name" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone" class="required">رقم الهاتف:</label>
-                                <input type="tel" id="phone" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="location" class="required" id="location-label">المحافظة:</label>
-                                <select id="location" class="form-control" required>
-                                    <option value="">اختر المحافظة</option>
-                                    <option value="القاهرة">القاهرة</option>
-                                    <option value="الجيزة">الجيزة</option>
-                                    <option value="الإسكندرية">الإسكندرية</option>
-                                    <option value="الدقهلية">الدقهلية</option>
-                                    <option value="البحيرة">البحيرة</option>
-                                    <option value="المنيا">المنيا</option>
-                                    <option value="القليوبية">القليوبية</option>
-                                    <option value="الشرقية">الشرقية</option>
-                                    <option value="الغربية">الغربية</option>
-                                    <option value="سوهاج">سوهاج</option>
-                                    <option value="أسيوط">أسيوط</option>
-                                    <option value="المنوفية">المنوفية</option>
-                                    <option value="كفر الشيخ">كفر الشيخ</option>
-                                    <option value="قنا">قنا</option>
-                                    <option value="بني سويف">بني سويف</option>
-                                    <option value="الاسماعيلية">الاسماعيلية</option>
-                                    <option value="الفيوم">الفيوم</option>
-                                    <option value="بورسعيد">بورسعيد</option>
-                                    <option value="السويس">السويس</option>
-                                    <option value="الأقصر">الأقصر</option>
-                                    <option value="مرسي مطروح">مرسي مطروح</option>
-                                    <option value="أسوان">أسوان</option>
-                                    <option value="شمال سيناء">شمال سيناء</option>
-                                    <option value="البحر الأحمر">البحر الأحمر</option>
-                                    <option value="الوادي الجديد">الوادي الجديد</option>
-                                    <option value="جنوب سيناء">جنوب سيناء</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="address" class="required">العنوان بالكامل:</label>
-                                <textarea id="address" class="form-control" rows="3" required></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="payment-info" class="required">معلومات الدفع:</label>
-                                <div id="payment-info-display" style="padding: 15px; background-color: var(--dark-bg); border-radius: var(--border-radius); margin-bottom: 15px;">
-                                    <p style="color: var(--text-gray);">سيظهر هنا تفاصيل الدفع بعد اختيار طريقة الدفع</p>
-                                </div>
-                                <input type="text" id="payment-info-input" class="form-control" placeholder="رقم الهاتف الذي تم التحويل منه" required style="display: none;">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="receipt" class="required">صورة إيصال التحويل:</label>
-                                <input type="file" id="receipt" class="form-control" accept="image/*" required>
-                                <small style="color: var(--text-gray); font-size: 0.9rem;">يرجى رفع صورة واضحة للإيصال</small>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="notes">ملاحظات إضافية:</label>
-                                <textarea id="notes" class="form-control" rows="2"></textarea>
-                            </div>
-                            
-                            <div style="text-align: center; margin-top: 25px;">
-                                <button type="submit" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">تأكيد الطلب</button>
-                                <button type="button" id="back-to-shipping" class="btn btn-secondary" style="margin-right: 15px;">العودة</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- سلة التسوق -->
-    <section class="container">
-        <div id="cart-container" class="cart-container">
-            <h2 class="section-title">سلة التسوق</h2>
-            <div id="cart-items">
-                <!-- سيتم إضافة عناصر السلة هنا جافاسكريبت -->
-            </div>
-            <div class="cart-total">
-                الإجمالي: <span id="cart-total-price">0</span> جنيه
-            </div>
-            <div class="cart-actions">
-                <button id="continue-shopping" class="btn btn-secondary">مواصلة التسوق</button>
-                <button id="checkout-btn" class="btn btn-primary">إتمام الطلب</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- صفحة المنتج التفصيلية -->
-    <section class="container">
-        <div id="product-detail-container" class="product-detail-container">
-            <!-- سيتم إضافة محتوى المنتج التفصيلي هنا جافاسكريبت -->
-        </div>
-    </section>
-
-    <!-- صفحة الأدمن -->
-    <section class="container">
-        <div id="admin-login-container" class="admin-login-container">
-            <h2 class="section-title">تسجيل الدخول للإدارة</h2>
-            <div class="form-group">
-                <label for="admin-password">كلمة المرور:</label>
-                                <input type="password" id="admin-password" class="form-control" placeholder="أدخل كلمة المرور">
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <button id="admin-login-btn" class="btn btn-primary">دخول</button>
-                <button id="test-github-btn" class="btn btn-secondary" style="margin-right: 15px;">
-                    <i class="fab fa-github"></i> اختبار اتصال GitHub
-                </button>
-            </div>
-            <div id="github-status" style="text-align: center; margin-top: 20px; color: var(--text-gray);"></div>
-        </div>
-
-        <div id="admin-panel-container" class="admin-panel-container">
-            <h2 class="section-title">لوحة إدارة المنتجات</h2>
-            <p style="text-align: center; margin-bottom: 20px; color: var(--text-gray)">هنا يمكنك إضافة وتعديل وحذف منتجات المتجر</p>
-            
-            <!-- زر إعادة التحميل من GitHub -->
-            <div style="text-align: center; margin-bottom: 30px;">
-                <button id="force-reload-github" class="btn btn-secondary">
-                    <i class="fas fa-cloud-download-alt"></i> إعادة تحميل المنتجات من GitHub
-                </button>
-                <button id="save-to-github" class="btn btn-success" style="margin-right: 15px;">
-                    <i class="fas fa-cloud-upload-alt"></i> حفظ إلى GitHub
-                </button>
-            </div>
-            
-            <!-- قسم إضافة منتج جديد -->
-            <div class="admin-form-container">
-                <h3 style="color: var(--primary-color); margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">إضافة منتج جديد</h3>
-                <form id="admin-form" class="admin-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="product-name">اسم المنتج:</label>
-                            <input type="text" id="product-name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="product-code">كود المنتج:</label>
-                            <input type="text" id="product-code" class="form-control" required placeholder="مثال: PRD001">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="product-price">السعر (جنية):</label>
-                            <input type="number" id="product-price" class="form-control" required min="1">
-                        </div>
-                        <div class="form-group">
-                            <label for="product-old-price">السعر قبل الخصم (جنية):</label>
-                            <input type="number" id="product-old-price" class="form-control" min="1">
-                        </div>
-                    </div>
-                    
-                    <!-- قسم الفئات -->
-                    <div class="category-management">
-                        <h4 style="color: var(--text-light); margin-bottom: 15px;">اختر الفئة:</h4>
-                        <div class="category-input-group">
-                            <input type="radio" id="category-shirts" class="category-radio" name="category" value="shirts" checked>
-                            <label for="category-shirts" class="category-label">قمصان وبلوفرات</label>
-                        </div>
-                        <div class="category-input-group">
-                            <input type="radio" id="category-pants" class="category-radio" name="category" value="pants">
-                            <label for="category-pants" class="category-label">بناطيل</label>
-                        </div>
-                        <div class="category-input-group">
-                            <input type="radio" id="category-shoes" class="category-radio" name="category" value="shoes">
-                            <label for="category-shoes" class="category-label">كوتشيات</label>
-                        </div>
-                    </div>
-                    
-                    <!-- قسم المقاسات -->
-                    <div id="shirts-sizes" class="sizes-management active">
-                        <h4 style="color: var(--text-light); margin-bottom: 15px;">المقاسات المتاحة للقمصان:</h4>
-                        <div class="size-input-group">
-                            <input type="checkbox" id="size-s" class="size-checkbox" value="S">
-                            <label for="size-s" class="size-label">S</label>
-                        </div>
-                        <div class="size-input-group">
-                            <input type="checkbox" id="size-m" class="size-checkbox" value="M">
-                            <label for="size-m" class="size-label">M</label>
-                        </div>
-                        <div class="size-input-group">
-                            <input type="checkbox" id="size-l" class="size-checkbox" value="L">
-                            <label for="size-l" class="size-label">L</label>
-                        </div>
-                        <div class="size-input-group">
-                            <input type="checkbox" id="size-xl" class="size-checkbox" value="XL">
-                            <label for="size-xl" class="size-label">XL</label>
-                        </div>
-                    </div>
-                    
-                    <div id="pants-sizes" class="sizes-management">
-                        <h4 style="color: var(--text-light); margin-bottom: 15px;">المقاسات المتاحة للبناطيل:</h4>
-                        <div id="pants-sizes-container">
-                            <!-- سيتم إضافة المقاسات ديناميكياً -->
-                        </div>
-                    </div>
-                    
-                    <div id="shoes-sizes" class="sizes-management">
-                        <h4 style="color: var(--text-light); margin-bottom: 15px;">المقاسات المتاحة للكوتشيات:</h4>
-                        <div id="shoes-sizes-container">
-                            <!-- سيتم إضافة المقاسات ديناميكياً -->
-                        </div>
-                    </div>
-                    
-                    <!-- رفع صورة المنتج -->
-                    <div class="form-group">
-                        <label>صورة المنتج:</label>
-                        <div class="file-upload-container">
-                            <label for="product-image-file" class="file-upload-label">
-                                <div class="file-upload-icon">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                </div>
-                                <div class="file-upload-text">انقر لرفع صورة المنتج</div>
-                                <div class="file-upload-hint">الصيغ المدعومة: JPG, PNG (الحد الأقصى: 5MB)</div>
-                                <img id="image-preview" class="preview-image" src="" alt="معاينة الصورة">
-                            </label>
-                            <input type="file" id="product-image-file" accept="image/*">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="product-video">رابط فيديو تيك توك (اختياري):</label>
-                        <input type="text" id="product-video" class="form-control" placeholder="https://www.tiktok.com/@perand21x/video/123456">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="product-description">وصف المنتج:</label>
-                        <textarea id="product-description" class="form-control" rows="4" required></textarea>
-                    </div>
-                    
-                    <div style="text-align: center;">
-                        <button type="submit" id="add-product-btn" class="btn btn-primary">إضافة المنتج</button>
-                        <button type="button" id="update-product-btn" class="btn btn-success" style="display: none;">تحديث المنتج</button>
-                        <button type="button" id="cancel-edit-btn" class="btn btn-secondary" style="margin-right: 15px; display: none;">إلغاء التعديل</button>
-                        <input type="hidden" id="edit-product-id">
-                    </div>
+            <div style="margin: 20px 0; padding: 20px; background-color: var(--dark-bg); border-radius: 5px;">
+                <h3>إضافة منتج جديد</h3>
+                <form id="product-form" class="admin-form">
+                    <input type="text" id="product-name" placeholder="اسم المنتج" required>
+                    <input type="text" id="product-code" placeholder="كود المنتج" required>
+                    <input type="number" id="product-price" placeholder="السعر" required>
+                    <input type="number" id="product-old-price" placeholder="السعر القديم (اختياري)">
+                    <textarea id="product-description" placeholder="وصف المنتج" rows="3"></textarea>
+                    <input type="text" id="product-image" placeholder="رابط الصورة">
+                    <input type="text" id="product-video" placeholder="رابط فيديو تيك توك (اختياري)">
+                    <select id="product-category">
+                        <option value="shirts">قمصان</option>
+                        <option value="pants">بناطيل</option>
+                        <option value="shoes">أحذية</option>
+                    </select>
+                    <button type="submit" class="btn">إضافة المنتج</button>
                 </form>
             </div>
             
-            <!-- قسم قائمة المنتجات -->
-            <div class="products-list">
-                <h3 style="color: var(--primary-color); margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">قائمة المنتجات (<span id="products-count">0</span> منتج)</h3>
-                <div id="products-table-container">
-                    <!-- سيتم عرض جدول المنتجات هنا -->
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <button type="button" id="admin-logout" class="btn btn-secondary">تسجيل الخروج</button>
+            <div id="products-list-admin">
+                <!-- قائمة المنتجات للإدارة -->
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- الفوتر -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Perand21x</h3>
-                    <p>متجر متخصص في ملابس الشباب والصبيان. نقدم أحدث صيحات الموضة بجودة عالية وأسعار مناسبة.</p>
-                    <div class="social-icons">
-                        <a href="https://www.tiktok.com/@perand21x" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://maps.google.com/?cid=8309258711368434786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaVRleHQ" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
-                        <a href="https://wa.me/201044051546" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://t.me/201044051546" target="_blank"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><i class="fas fa-home"></i><a href="#" id="footer-home-link">الرئيسية</a></li>
-                        <li><i class="fas fa-tshirt"></i><a href="#" id="footer-products-link">المنتجات</a></li>
-                        <li><i class="fas fa-shopping-cart"></i><a href="#" id="footer-cart-link">سلة التسوق</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>معلومات الاتصال</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> 
-                            <a href="https://maps.google.com/?cid=8309258711368434786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaVRleHQ" target="_blank">
-                                القاهرة، مصر
-                            </a>
-                        </p>
-                        <p><i class="fas fa-phone"></i> 
-                            <a href="tel:201044051546">201044051546</a>
-                        </p>
-                        <p><i class="fab fa-whatsapp"></i> 
-                            <a href="https://wa.me/201044051546" target="_blank">واتساب: 201044051546</a>
-                        </p>
-                        <p><i class="fab fa-telegram"></i> 
-                            <a href="https://t.me/201044051546" target="_blank">تلجرام: 201044051546</a>
-                        </p>
-                        <p><i class="fab fa-tiktok"></i> 
-                            <a href="https://www.tiktok.com/@perand21x" target="_blank">تيك توك: @perand21x</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>جميع الحقوق محفوظة &copy; Perand21x 2023</p>
-                <a href="#" id="admin-access" style="color: #666; font-size: 0.8rem; margin-top: 5px; display: inline-block;">الدخول لوحة التحكم</a>
-            </div>
+            <p style="text-align: center;">© 2023 Perand21x. جميع الحقوق محفوظة.</p>
+            <p style="text-align: center; margin-top: 10px; color: #888;">
+                تواصل معنا: 01044051546 | 
+                <a href="https://tiktok.com/@perand21x" style="color: var(--primary-color);">تيك توك</a>
+            </p>
         </div>
     </footer>
 
     <script>
-        // ============== إعدادات GitHub ==============
-        const GITHUB_TOKEN = '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';
-        const GITHUB_USERNAME = 'mohamed7news-collab';
-        const REPO_NAME = 'perand21x-store';
-        
-        const GITHUB_DATA_URL = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/data/products.json`;
-        const GITHUB_UPDATE_URL = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/data/products.json`;
-        // ============================================
-        
-        // بيانات التطبيق
-        const categories = [
-            { id: 'shirts', name: 'قمصان وبلوفرات', icon: 'fas fa-tshirt' },
-            { id: 'pants', name: 'بناطيل', icon: 'fas fa-vest' },
-            { id: 'shoes', name: 'كوتشيات', icon: 'fas fa-shoe-prints' }
-        ];
-        
-        const sizeRanges = {
-            shirts: ['S', 'M', 'L', 'XL', 'XXL', 'XXXL', 'XXXXL'],
-            pants: Array.from({length: 15}, (_, i) => (i + 30).toString()), // 30 إلى 44
-            shoes: Array.from({length: 21}, (_, i) => (i + 28).toString()) // 28 إلى 48
+        // إعدادات GitHub - استبدل التوكن والتفاصيل هنا
+        const GITHUB_CONFIG = {
+            token: 'YOUR_GITHUB_TOKEN_HERE', // ضع توكنك هنا
+            username: 'YOUR_USERNAME', // ضع اسم المستخدم هنا
+            repo: 'YOUR_REPO_NAME', // ضع اسم المستودع هنا
+            filePath: 'products.json'
         };
         
-        // المتغيرات العامة
-        let products = []; // سيتم تحميلها من GitHub
+        // بيانات المتجر
+        let products = [];
         let cart = [];
-        let currentCategory = 'all';
-        let shippingData = {
-            type: null,
-            price: 0,
-            paymentMethod: null,
-            ibanEgypt: "3280383000004388",
-            ibanInternational: "EG870002032803280383000004388"
-        };
         
         // عناصر DOM
-        const loadingOverlay = document.getElementById('loading-overlay');
-        const loadingStatus = document.getElementById('loading-status');
         const productsContainer = document.getElementById('products-container');
-        const cartContainer = document.getElementById('cart-container');
-        const refreshProductsBtn = document.getElementById('refresh-products');
-        const productsCount = document.getElementById('products-count');
+        const adminPanel = document.getElementById('admin-panel');
+        const loadingDiv = document.getElementById('loading');
+        const errorDiv = document.getElementById('error-message');
+        const successDiv = document.getElementById('success-message');
+        const cartCount = document.getElementById('cart-count');
         
-        // ============== دوال GitHub الرئيسية ==============
-        
-        // تحميل المنتجات من GitHub
-        async function loadProductsFromGitHub() {
+        // تحميل البيانات الأولية
+        async function loadInitialData() {
+            showLoading(true);
+            
             try {
-                updateLoadingStatus('📥 جاري تحميل المنتجات من GitHub...');
+                // أولاً: جرب تحميل من localStorage
+                const localData = localStorage.getItem('perand21x_products');
+                if (localData) {
+                    products = JSON.parse(localData);
+                    showMessage('تم تحميل المنتجات من التخزين المحلي', 'success');
+                }
                 
-                // إضافة timestamp لمنع التخزين المؤقت
-                const timestamp = new Date().getTime();
-                const response = await fetch(`${GITHUB_DATA_URL}?t=${timestamp}`);
+                // ثانياً: جرب تحميل من GitHub
+                await loadFromGitHub();
+                
+                if (products.length === 0) {
+                    // إذا لم توجد بيانات، أنشئ بيانات تجريبية
+                    createSampleProducts();
+                }
+                
+                renderProducts();
+                updateCartCount();
+                
+            } catch (error) {
+                showMessage('خطأ في تحميل البيانات: ' + error.message, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        // تحميل من GitHub
+        async function loadFromGitHub() {
+            try {
+                showMessage('جاري تحميل البيانات من GitHub...', 'info');
+                
+                // إذا لم يكن هناك توكن، استخدم raw URL مباشرة
+                const rawUrl = `https://raw.githubusercontent.com/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/main/${GITHUB_CONFIG.filePath}`;
+                
+                const response = await fetch(rawUrl + '?t=' + Date.now());
                 
                 if (response.ok) {
                     const data = await response.json();
-                    
-                    if (Array.isArray(data) && data.length > 0) {
-                        // إعداد المنتجات مع الحقول المطلوبة
-                        products = data.map((p, index) => ({
-                            id: p.id || index + 1,
-                            code: p.code || `PRD${String(index + 1).padStart(3, '0')}`,
-                            name: p.name || 'منتج بدون اسم',
-                            description: p.description || 'لا يوجد وصف',
-                            price: p.price || 0,
-                            oldPrice: p.oldPrice || null,
-                            category: p.category || 'shirts',
-                            sizes: p.sizes || {},
-                            selectedSize: null,
-                            image: p.image || 'https://via.placeholder.com/300x400?text=Perand21x',
-                            video: p.video || ''
-                        }));
-                        
-                        updateLoadingStatus(`✅ تم تحميل ${products.length} منتج من GitHub`);
-                        console.log('منتجات تم تحميلها:', products);
-                        return true;
-                    } else {
-                        updateLoadingStatus('📁 قائمة المنتجات فارغة على GitHub');
-                        loadProductsFromLocalStorage();
-                        return false;
-                    }
+                    products = data;
+                    localStorage.setItem('perand21x_products', JSON.stringify(products));
+                    showMessage(`تم تحميل ${products.length} منتج من GitHub`, 'success');
+                    return true;
                 } else {
-                    updateLoadingStatus('⚠ تعذر الوصول لـ GitHub');
-                    loadProductsFromLocalStorage();
+                    showMessage('لا يمكن الوصول إلى GitHub، سيتم استخدام البيانات المحلية', 'info');
                     return false;
                 }
             } catch (error) {
-                console.error('❌ خطأ في تحميل المنتجات:', error);
-                updateLoadingStatus('❌ خطأ في تحميل المنتجات');
-                loadProductsFromLocalStorage();
+                console.error('GitHub error:', error);
+                showMessage('خطأ في الاتصال بـ GitHub', 'error');
                 return false;
             }
         }
         
-        // تحميل المنتجات من التخزين المحلي
-        function loadProductsFromLocalStorage() {
-            try {
-                const savedProducts = localStorage.getItem('perand21x_products');
-                if (savedProducts) {
-                    const parsed = JSON.parse(savedProducts);
-                    products = parsed.map(p => ({
-                        ...p,
-                        selectedSize: null,
-                        sizes: p.sizes || {},
-                        image: p.image || 'https://via.placeholder.com/300x400?text=Product'
-                    }));
-                    updateLoadingStatus(`📱 تم تحميل ${products.length} منتج محلي`);
-                } else {
-                    updateLoadingStatus('🔄 استخدام المنتجات الافتراضية');
-                    products = getDefaultProducts();
-                }
-            } catch (e) {
-                console.error('خطأ في تحليل البيانات المحلية:', e);
-                products = getDefaultProducts();
+        // حفظ إلى GitHub
+        async function saveToGitHub() {
+            if (!GITHUB_CONFIG.token || GITHUB_CONFIG.token === 'YOUR_GITHUB_TOKEN_HERE') {
+                showMessage('يرجى إضافة توكن GitHub في الإعدادات', 'error');
+                return;
             }
-        }
-        
-        // حفظ المنتجات إلى GitHub
-        async function saveProductsToGitHub() {
+            
             try {
-                updateLoadingStatus('💾 جاري حفظ المنتجات إلى GitHub...');
+                showLoading(true);
+                showMessage('جاري الحفظ إلى GitHub...', 'info');
                 
-                // حفظ نسخة محلية أولاً
+                // حفظ محلياً أولاً
                 localStorage.setItem('perand21x_products', JSON.stringify(products));
                 
-                // تحضير البيانات للحفظ (إزالة selectedSize)
-                const productsToSave = products.map(({ selectedSize, ...rest }) => rest);
-                const content = JSON.stringify(productsToSave, null, 2);
-                const contentBase64 = btoa(unescape(encodeURIComponent(content)));
+                // ثم حاول الحفظ إلى GitHub
+                const apiUrl = `https://api.github.com/repos/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.filePath}`;
                 
-                // محاولة جلب SHA للملف الحالي
+                // جلب SHA للملف الحالي إذا موجود
                 let sha = null;
                 try {
-                    const getResponse = await fetch(GITHUB_UPDATE_URL, {
+                    const getResponse = await fetch(apiUrl, {
                         headers: {
-                            'Authorization': `token ${GITHUB_TOKEN}`,
+                            'Authorization': `token ${GITHUB_CONFIG.token}`,
                             'Accept': 'application/vnd.github.v3+json'
                         }
                     });
@@ -1135,125 +394,37 @@
                         sha = fileInfo.sha;
                     }
                 } catch (e) {
-                    console.log('📄 سيتم إنشاء ملف جديد على GitHub');
+                    // الملف غير موجود، سننشئه
                 }
                 
-                const updateData = {
-                    message: `🛍️ تحديث المنتجات - ${new Date().toLocaleString('ar-EG')}`,
-                    content: contentBase64,
-                    sha: sha
-                };
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(products, null, 2))));
                 
-                const updateResponse = await fetch(GITHUB_UPDATE_URL, {
+                const response = await fetch(apiUrl, {
                     method: 'PUT',
                     headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
+                        'Authorization': `token ${GITHUB_CONFIG.token}`,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github.v3+json'
                     },
-                    body: JSON.stringify(updateData)
+                    body: JSON.stringify({
+                        message: 'تحديث المنتجات ' + new Date().toLocaleString('ar-EG'),
+                        content: content,
+                        sha: sha
+                    })
                 });
                 
-                if (updateResponse.ok) {
-                    updateLoadingStatus('✅ تم حفظ المنتجات إلى GitHub بنجاح!');
-                    showNotification('✅ تم حفظ المنتجات في السحابة!');
-                    return true;
-                } else {
-                    updateLoadingStatus('⚠ تم الحفظ محلياً فقط (GitHub غير متاح)');
-                    showNotification('⚠ تم الحفظ محلياً فقط');
-                    return false;
-                }
-                
-            } catch (error) {
-                console.error('❌ خطأ في الحفظ:', error);
-                updateLoadingStatus('❌ خطأ في الحفظ إلى GitHub');
-                localStorage.setItem('perand21x_products', JSON.stringify(products));
-                showNotification('⚠ تم الحفظ محلياً فقط');
-                return false;
-            }
-        }
-        
-        // اختبار اتصال GitHub
-        async function testGitHubConnection() {
-            try {
-                updateLoadingStatus('🔍 اختبار اتصال GitHub...');
-                const response = await fetch(GITHUB_DATA_URL);
-                
                 if (response.ok) {
-                    updateLoadingStatus('✅ اتصال GitHub يعمل بشكل صحيح');
-                    showNotification('✅ اتصال GitHub يعمل بشكل صحيح');
-                    return true;
+                    showMessage('تم حفظ المنتجات إلى GitHub بنجاح!', 'success');
                 } else {
-                    updateLoadingStatus('❌ لا يمكن الوصول إلى GitHub');
-                    showNotification('❌ لا يمكن الوصول إلى GitHub');
-                    return false;
+                    showMessage('فشل الحفظ إلى GitHub، تم الحفظ محلياً فقط', 'warning');
                 }
+                
             } catch (error) {
-                updateLoadingStatus('❌ فشل اختبار اتصال GitHub');
-                showNotification('❌ فشل اختبار اتصال GitHub');
-                return false;
+                console.error('Save error:', error);
+                showMessage('خطأ في الحفظ: ' + error.message, 'error');
             } finally {
-                hideLoadingAfterDelay();
+                showLoading(false);
             }
-        }
-        
-        // ============== دوال التطبيق الأساسية ==============
-        
-        // تهيئة المتجر
-        async function initStore() {
-            // تحميل المنتجات أولاً
-            const loaded = await loadProductsFromGitHub();
-            
-            // تهيئة المكونات
-            renderCategories();
-            renderProducts();
-            updateCartCount();
-            setupEventListeners();
-            hideAllSections();
-            showHomeSection();
-            initSizeInputs();
-            
-            // إخفاء التحميل
-            setTimeout(() => {
-                loadingOverlay.style.display = 'none';
-                if (!loaded) {
-                    refreshProductsBtn.style.display = 'inline-block';
-                }
-            }, 1000);
-        }
-        
-        // عرض الفئات
-        function renderCategories() {
-            const container = document.getElementById('categories-container');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            // إضافة فئة "الكل"
-            const allCategory = document.createElement('div');
-            allCategory.className = 'category-card' + (currentCategory === 'all' ? ' active' : '');
-            allCategory.setAttribute('data-category', 'all');
-            allCategory.innerHTML = `
-                <div class="category-icon">
-                    <i class="fas fa-boxes"></i>
-                </div>
-                <h3>الكل</h3>
-            `;
-            container.appendChild(allCategory);
-            
-            // إضافة الفئات الأخرى
-            categories.forEach(category => {
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'category-card' + (currentCategory === category.id ? ' active' : '');
-                categoryElement.setAttribute('data-category', category.id);
-                categoryElement.innerHTML = `
-                    <div class="category-icon">
-                        <i class="${category.icon}"></i>
-                    </div>
-                    <h3>${category.name}</h3>
-                `;
-                container.appendChild(categoryElement);
-            });
         }
         
         // عرض المنتجات
@@ -1261,217 +432,244 @@
             if (!productsContainer) return;
             
             productsContainer.innerHTML = '';
-            productsCount.textContent = products.length;
             
-            let filteredProducts = products;
-            if (currentCategory !== 'all') {
-                filteredProducts = products.filter(p => p.category === currentCategory);
-            }
-            
-            if (filteredProducts.length === 0) {
-                productsContainer.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-gray)">
-                        <i class="fas fa-box-open" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                        <h3>لا توجد منتجات في هذه الفئة</h3>
-                        <button id="add-sample-products" class="btn btn-primary" style="margin-top: 20px;">
-                            <i class="fas fa-plus"></i> إضافة منتجات تجريبية
-                        </button>
-                    </div>
-                `;
+            if (products.length === 0) {
+                productsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">لا توجد منتجات</p>';
                 return;
             }
             
-            filteredProducts.forEach(product => {
-                const discount = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
-                const availableSizes = Object.keys(product.sizes).filter(size => product.sizes[size]);
-                
-                let sizeOptionsHTML = '<div class="size-selection">';
-                sizeOptionsHTML += '<div class="size-title">اختر المقاس:</div>';
-                sizeOptionsHTML += '<div class="size-options">';
-                
-                availableSizes.forEach(size => {
-                    const isSelected = product.selectedSize === size;
-                    let sizeClass = 'size-option available';
-                    if (isSelected) sizeClass += ' selected';
-                    sizeOptionsHTML += `<div class="${sizeClass}" data-size="${size}" data-product-id="${product.id}">${size}</div>`;
-                });
-                
-                sizeOptionsHTML += '</div></div>';
-                
-                const productElement = document.createElement('div');
-                productElement.className = 'product-card';
-                productElement.innerHTML = `
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
                     <div class="product-image">
-                        <div class="product-code">${product.code}</div>
-                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x400?text=Perand21x'">
+                        <img src="${product.image || 'https://via.placeholder.com/300x200?text=Perand21x'}" alt="${product.name}">
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        
-                        ${sizeOptionsHTML}
-                        
-                        <div class="price-container">
-                            <div class="current-price">${product.price} جنيه</div>
-                            ${product.oldPrice ? `<div class="old-price">${product.oldPrice} جنيه</div>` : ''}
-                            ${discount > 0 ? `<div class="discount-badge">${discount}% خصم</div>` : ''}
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-add-to-cart" data-id="${product.id}" ${!product.selectedSize ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : ''}>
-                                <i class="fas fa-cart-plus"></i> أضف للسلة
-                            </button>
-                            <button class="btn btn-view-details" data-id="${product.id}">
-                                <i class="fas fa-eye"></i> التفاصيل
-                            </button>
-                        </div>
+                        <p style="color: #888; font-size: 0.9rem; margin-bottom: 10px;">${product.code}</p>
+                        <p style="margin-bottom: 10px;">${product.description || ''}</p>
+                        <div class="product-price">${product.price} ج.م</div>
+                        ${product.oldPrice ? `<div style="text-decoration: line-through; color: #888;">${product.oldPrice} ج.م</div>` : ''}
+                        <button class="btn" onclick="addToCart(${product.id})" style="margin-top: 10px; width: 100%;">أضف إلى السلة</button>
                     </div>
                 `;
-                
-                productsContainer.appendChild(productElement);
+                productsContainer.appendChild(productCard);
             });
         }
         
-        // ============== دوال مساعدة ==============
-        
-        // تحديث حالة التحميل
-        function updateLoadingStatus(message) {
-            if (loadingStatus) {
-                loadingStatus.textContent = message;
+        // عرض قائمة المنتجات في لوحة الإدارة
+        function renderAdminProductsList() {
+            const container = document.getElementById('products-list-admin');
+            if (!container) return;
+            
+            container.innerHTML = '<h3>قائمة المنتجات الحالية</h3>';
+            
+            if (products.length === 0) {
+                container.innerHTML += '<p>لا توجد منتجات</p>';
+                return;
             }
-            console.log(message);
+            
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
+            table.innerHTML = `
+                <thead>
+                    <tr style="background-color: var(--dark-bg);">
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">الكود</th>
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">الاسم</th>
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">السعر</th>
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${products.map(product => `
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">${product.code}</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">${product.name}</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">${product.price} ج.م</td>
+                            <td style="padding: 10px; border: 1px solid var(--border-color);">
+                                <button class="btn" style="padding: 5px 10px; background-color: #ff4444;" onclick="deleteProduct(${product.id})">حذف</button>
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            
+            container.appendChild(table);
         }
         
-        // إخفاء نافذة التحميل بعد تأخير
-        function hideLoadingAfterDelay(delay = 2000) {
-            setTimeout(() => {
-                loadingOverlay.style.display = 'none';
-            }, delay);
+        // إضافة منتج جديد
+        function addProduct(event) {
+            event.preventDefault();
+            
+            const newProduct = {
+                id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+                code: document.getElementById('product-code').value,
+                name: document.getElementById('product-name').value,
+                price: parseInt(document.getElementById('product-price').value),
+                oldPrice: document.getElementById('product-old-price').value ? parseInt(document.getElementById('product-old-price').value) : null,
+                description: document.getElementById('product-description').value,
+                image: document.getElementById('product-image').value || 'https://via.placeholder.com/300x200?text=Perand21x',
+                video: document.getElementById('product-video').value,
+                category: document.getElementById('product-category').value
+            };
+            
+            products.push(newProduct);
+            localStorage.setItem('perand21x_products', JSON.stringify(products));
+            
+            renderProducts();
+            renderAdminProductsList();
+            document.getElementById('product-form').reset();
+            
+            showMessage('تمت إضافة المنتج بنجاح', 'success');
         }
         
-        // الحصول على منتجات افتراضية
-        function getDefaultProducts() {
-            return [
+        // حذف منتج
+        function deleteProduct(productId) {
+            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+                products = products.filter(p => p.id !== productId);
+                localStorage.setItem('perand21x_products', JSON.stringify(products));
+                
+                renderProducts();
+                renderAdminProductsList();
+                showMessage('تم حذف المنتج', 'success');
+            }
+        }
+        
+        // إضافة إلى السلة
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                localStorage.setItem('perand21x_cart', JSON.stringify(cart));
+                updateCartCount();
+                showMessage('تمت إضافة المنتج إلى السلة', 'success');
+            }
+        }
+        
+        // تحديث عداد السلة
+        function updateCartCount() {
+            cartCount.textContent = cart.length;
+        }
+        
+        // إنشاء منتجات تجريبية
+        function createSampleProducts() {
+            products = [
                 {
                     id: 1,
                     code: "PRD001",
-                    name: "تيشيرت شبابي أسود",
-                    description: "تيشيرت قطني عالي الجودة، تصميم عصري للشباب. مناسب للارتداء اليومي والمناسبات العادية.",
-                    price: 179,
-                    oldPrice: 249,
-                    category: "shirts",
-                    sizes: {"S": true, "M": true, "L": true, "XL": false},
-                    selectedSize: null,
-                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1480&q=80",
-                    video: ""
+                    name: "تيشيرت أسود",
+                    price: 150,
+                    oldPrice: 200,
+                    description: "تيشيرت قطني عالي الجودة",
+                    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    category: "shirts"
                 },
                 {
                     id: 2,
                     code: "PRD002",
-                    name: "جينز شبابي أزرق",
-                    description: "جينز أزرق عالي الجودة بمقاس ضيق. تصميم عصري يناسب الشباب في جميع المناسبات.",
-                    price: 329,
-                    oldPrice: 449,
-                    category: "pants",
-                    sizes: {"32": true, "34": true, "36": true, "38": false},
-                    selectedSize: null,
-                    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1026&q=80",
-                    video: ""
+                    name: "جينز أزرق",
+                    price: 300,
+                    description: "جينز أزرق بمقاسات مختلفة",
+                    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+                    category: "pants"
                 }
             ];
+            
+            localStorage.setItem('perand21x_products', JSON.stringify(products));
+            showMessage('تم إنشاء منتجات تجريبية', 'info');
         }
         
-        // عرض إشعار
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background-color: var(--success-color);
-                color: white;
-                padding: 15px 25px;
-                border-radius: var(--border-radius);
-                box-shadow: var(--shadow);
-                z-index: 9999;
-                font-weight: 600;
-                transform: translateX(100%);
-                transition: transform 0.3s ease-in-out;
-            `;
+        // عرض/إخفاء التحميل
+        function showLoading(show) {
+            loadingDiv.style.display = show ? 'block' : 'none';
+        }
+        
+        // عرض الرسائل
+        function showMessage(message, type) {
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
             
-            notification.textContent = message;
-            document.body.appendChild(notification);
+            if (type === 'error') {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+            } else if (type === 'success') {
+                successDiv.textContent = message;
+                successDiv.style.display = 'block';
+            } else if (type === 'info') {
+                console.log(message);
+            }
             
+            // إخفاء الرسالة بعد 5 ثواني
             setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 10);
-            
-            setTimeout(() => {
-                notification.style.transform = 'translateX(100%)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
+                errorDiv.style.display = 'none';
+                successDiv.style.display = 'none';
+            }, 5000);
         }
         
-        // ============== إعداد مستمعي الأحداث ==============
-        
-        function setupEventListeners() {
-            // زر إعادة تحميل المنتجات
-            refreshProductsBtn.addEventListener('click', async () => {
-                loadingOverlay.style.display = 'flex';
-                await loadProductsFromGitHub();
+        // تهيئة الأحداث
+        function initEvents() {
+            // الروابط
+            document.getElementById('home-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                adminPanel.style.display = 'none';
+            });
+            
+            document.getElementById('products-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                adminPanel.style.display = 'none';
+            });
+            
+            document.getElementById('view-products').addEventListener('click', (e) => {
+                e.preventDefault();
+                adminPanel.style.display = 'none';
                 renderProducts();
-                setTimeout(() => {
-                    loadingOverlay.style.display = 'none';
-                }, 1000);
             });
             
-            // اختبار اتصال GitHub
-            document.getElementById('test-github-btn')?.addEventListener('click', async () => {
-                loadingOverlay.style.display = 'flex';
-                await testGitHubConnection();
+            document.getElementById('admin-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                adminPanel.style.display = 'block';
+                renderAdminProductsList();
             });
             
-            // إعادة تحميل من GitHub
-            document.getElementById('force-reload-github')?.addEventListener('click', async () => {
-                loadingOverlay.style.display = 'flex';
-                await loadProductsFromGitHub();
+            // الأزرار
+            document.getElementById('load-from-github').addEventListener('click', async () => {
+                await loadFromGitHub();
                 renderProducts();
-                renderProductsTable();
-                setTimeout(() => {
-                    loadingOverlay.style.display = 'none';
-                }, 1000);
+                renderAdminProductsList();
             });
             
-            // حفظ إلى GitHub
-            document.getElementById('save-to-github')?.addEventListener('click', async () => {
-                await saveProductsToGitHub();
+            document.getElementById('save-to-github').addEventListener('click', async () => {
+                await saveToGitHub();
             });
             
-            // ... باقي مستمعي الأحداث كما هي
-        }
-        
-        // ============== بدء التطبيق ==============
-        
-        document.addEventListener('DOMContentLoaded', async () => {
-            await initStore();
+            document.getElementById('clear-all').addEventListener('click', () => {
+                if (confirm('هل أنت متأكد من حذف جميع المنتجات؟')) {
+                    products = [];
+                    localStorage.removeItem('perand21x_products');
+                    renderProducts();
+                    renderAdminProductsList();
+                    showMessage('تم حذف جميع المنتجات', 'success');
+                }
+            });
             
-            // تحميل السلة من التخزين المحلي
+            // نموذج إضافة منتج
+            document.getElementById('product-form').addEventListener('submit', addProduct);
+            
+            // تحميل السلة من التخزين
             const savedCart = localStorage.getItem('perand21x_cart');
             if (savedCart) {
-                try {
-                    cart = JSON.parse(savedCart);
-                    updateCartCount();
-                } catch (e) {
-                    console.error('خطأ في تحميل السلة:', e);
-                    cart = [];
-                }
+                cart = JSON.parse(savedCart);
+                updateCartCount();
             }
+        }
+        
+        // بدء التطبيق
+        document.addEventListener('DOMContentLoaded', () => {
+            loadInitialData();
+            initEvents();
         });
-        
-        // ============== باقي دوال التطبيق ==============
-        // (يمكنك إضافة باقي الدوال من الكود السابق هنا)
-        
     </script>
 </body>
 </html>
